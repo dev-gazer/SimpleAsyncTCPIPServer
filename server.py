@@ -1,10 +1,10 @@
 import asyncio, socket, time
 
 class Server:
-    def __init__(self, ip, port, synchronous=True):
+    def __init__(self, ip, port):
         self.ip = ip
         self.port = port
-        self.synchronous = synchronous
+        asyncio.run(self.run_server())
 
     async def handle_client(self, client):
         loop = asyncio.get_event_loop()
